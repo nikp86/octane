@@ -1,0 +1,60 @@
+version: "3"
+services:
+  octane:
+    depends_on:
+    - octane_mssql
+    - octane_es
+    ports:
+    - 8080:8080
+    - 8443:8443
+    - 5701
+    volumes:
+      - /opt/octane/conf:/opt/octane/conf
+      - /opt/octane/log:/opt/octane/log
+      - /opt/octane/repo:/opt/octane/repo
+    environment:
+      DISABLE_VALIDATOR_MEMORY: 'true'
+    env_file:
+      octane.env
+    image: lifecyclemanagement/octane 
+  octane_mssql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    #volumes:
+    #  - /opt/octane/mssql:/var/opt/mssql
+    ports:
+      - 1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=OctaneIsTheBest1!
+      - MSSQL_PID=Express
+      - CHECK_POLICY = OFF
+      - CHECK_EXPIRY = OFF
+  octane_es:
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - http.host=0.0.0.0
+      - transport.host=0.0.0.0
+      - xpack.security.enabled=false
+      - xpack.watcher.enabled=false
+      - xpack.monitoring.enabled=false
+      - xpack.graph.enabled=false
+      - xpack.ml.enabled=false
+      - cluster.name=elasticsearch
+      - bootstrap.memory_lock=true
+      - discovery.type=single-node
+    #volumes:
+    #  - /opt/octane/elasticsearch:/usr/share/elasticsearch/data
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.1
+    ports:
+    - 9300
+    - 9200:9200
+    cap_add:
+      - IPC_LOCK
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+

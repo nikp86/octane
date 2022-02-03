@@ -25,8 +25,9 @@ services:
       - 1433
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=OctaneIsTheBest1!
       - MSSQL_PID=Express
+    env_file:
+      db.env
   octane_es:
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"

@@ -23,7 +23,7 @@ Latest beta: lifecyclemanagement/octane:beta
 Latest alpha: lifecyclemanagement/octane:alpha We also provide tags for each version we release.
 For a complete list of all tags available, see: https://hub.docker.com/r/lifecyclemanagement/octane/tags/
 
-Login details:
+Default Login details:
 http://localhost:8080
-username: sa@nga
-password: OctaneIsTheBest1!
+username: admin
+password: P@ssw0rd

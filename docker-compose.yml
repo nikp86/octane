@@ -25,7 +25,7 @@ services:
       - 1433
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD="OctaneIsTheBest1!"
+      - SA_PASSWORD=P@ssw0rd2022
       - MSSQL_PID=Express
       - CHECK_POLICY=OFF
       - CHECK_EXPIRY=OFF

@@ -9,9 +9,9 @@ services:
     - 8443:8443
     - 5701
     volumes:
-      - octane_conf:/opt/octane/conf
-      - octane_log:/opt/octane/log
-      - octane_repo:/opt/octane/repo
+      - /opt/octane/conf:/opt/octane/conf
+      - /opt/octane/log:/opt/octane/log
+      - /opt/octane/repo:/opt/octane/repo
     environment:
       DISABLE_VALIDATOR_MEMORY: 'true'
     env_file:
@@ -27,7 +27,6 @@ services:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=OctaneIsTheBest1!
       - MSSQL_PID=Express
-      - CHECK_POLICY=OFF
   octane_es:
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
@@ -43,7 +42,7 @@ services:
       - discovery.type=single-node
     #volumes:
     #  - /opt/octane/elasticsearch:/usr/share/elasticsearch/data
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.7.2
     ports:
     - 9300
     - 9200:9200
@@ -56,7 +55,4 @@ services:
       nofile:
         soft: 65536
         hard: 65536
-volumes:
-  octane_conf:
-  octane_log:
-  octane_repo:
+

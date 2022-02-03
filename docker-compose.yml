@@ -57,7 +57,6 @@ services:
       nofile:
         soft: 65536
         hard: 65536
-
 volumes:
   octane_conf:
   octane_log:

@@ -9,9 +9,9 @@ services:
     - 8443:8443
     - 5701
     volumes:
-      - octane_conf:/opt/octane/conf:/opt/octane/conf
-      - octane_log:/opt/octane/log:/opt/octane/log
-      - octane_repo:/opt/octane/repo:/opt/octane/repo
+      - octane_conf:/opt/octane/conf
+      - octane_log:/opt/octane/log
+      - octane_repo:/opt/octane/repo
     environment:
       DISABLE_VALIDATOR_MEMORY: 'true'
     env_file:

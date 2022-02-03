@@ -27,7 +27,7 @@ services:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=OctaneIsTheBest1!
       - MSSQL_PID=Express
-      - CHECK_POLICY=OFF
+      - CHECK_POLICY = OFF
   octane_es:
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"

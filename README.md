@@ -1,4 +1,4 @@
-Docker-compose for latest ALM Octane
+Docker-compose for latest ALM Octane - for testing purposes, no persistant data
 
 Usage:
 

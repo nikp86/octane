@@ -1,4 +1,4 @@
-Docker-compose for ALM Octane
+Docker-compose for latest ALM Octane
 
 Usage:
 

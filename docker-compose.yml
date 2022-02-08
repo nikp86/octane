@@ -17,8 +17,10 @@ services:
     env_file:
       octane.env
     image: lifecyclemanagement/octane 
+    container_name: octane
   octane_mssql:
     image: mcr.microsoft.com/mssql/server:2017-latest
+    container_name: octane_mssql
     #volumes:
     #  - /opt/octane/mssql:/var/opt/mssql
     ports:
@@ -43,6 +45,7 @@ services:
     #volumes:
     #  - /opt/octane/elasticsearch:/usr/share/elasticsearch/data
     image: docker.elastic.co/elasticsearch/elasticsearch:7.16.2
+    container_name: octane_es
     ports:
     - 9300
     - 9200:9200

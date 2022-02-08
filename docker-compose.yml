@@ -8,10 +8,10 @@ services:
     - 8080:8080
     - 8443:8443
     - 5701
-    volumes:
-      - octane_conf:/opt/octane/conf
-      - octane_log:/opt/octane/log
-      - octane_repo:/opt/octane/repo
+    #volumes:
+     # - octane_conf:/opt/octane/conf
+      #- octane_log:/opt/octane/log
+      #- octane_repo:/opt/octane/repo
     environment:
       DISABLE_VALIDATOR_MEMORY: 'true'
     env_file:
@@ -58,7 +58,7 @@ services:
       nofile:
         soft: 65536
         hard: 65536
-volumes:
-  octane_conf:
-  octane_log:
-  octane_repo:
+#volumes:
+ # octane_conf:
+  #octane_log:
+  #octane_repo:
